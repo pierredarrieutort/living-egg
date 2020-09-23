@@ -1,0 +1,107 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background: #2C2C2C;
+    overflow: hidden;
+    cursor: grab;
+}
+
+#blob {
+    height: min(80vw, 80vh);
+    width: min(80vw, 80vh);
+    transition: .75s linear;
+    animation: 20s ease-in-out infinite alternate rotation;
+    box-shadow:
+        0 0px 2.3px -100px rgba(0, 0, 0, 0.178),
+        0 0px 5.1px -100px rgba(0, 0, 0, 0.295),
+        0 0px 8.5px -100px rgba(0, 0, 0, 0.371),
+        0 0px 12.9px -100px rgba(0, 0, 0, 0.422),
+        0 0px 18.5px -100px rgba(0, 0, 0, 0.46),
+        0 0px 26.2px -100px rgba(0, 0, 0, 0.498),
+        0 0px 37.2px -100px rgba(0, 0, 0, 0.549),
+        0 0px 54px -100px rgba(0, 0, 0, 0.629),
+        0 0px 83.3px -100px rgba(0, 0, 0, 0.765),
+        0 0px 148px -100px rgba(0, 0, 0, 1);
+    background: #ECE6E2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+#eggCore {
+    width: 35%;
+    height: 35%;
+    background-image: radial-gradient(circle, #FDB72F 36%, #F7911C 64%, #F00A08 93%);
+    border-radius: inherit;
+    transition: inherit;
+    animation: 50s ease-in-out infinite alternate rotation;
+}
+
+#eggWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#eggEyes {
+    position: absolute;
+    top: 42.5%;
+    width: 20%;
+    height: 26%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eye {
+    width: 35%;
+    height: inherit;
+    background: #ECE6E2;
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eye::after {
+    content: '';
+    display: block;
+    background: #2C2C2C;
+    position: absolute;
+    height: 1vw;
+    width: 1vw;
+    border-radius: 1vw;
+    margin-bottom: 25%;
+}
+
+.eye:first-child::after {
+    animation: 1.4s blink linear alternate infinite;
+}
+
+.eye:last-child::after {
+    animation: 1.4s blink .05s linear alternate infinite;
+}
+
+@keyframes blink {
+    90% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
