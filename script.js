@@ -1,15 +1,14 @@
 class BlobMachine {
     constructor(blob) {
         this.blob = blob
-        this.runningBlob = null
-    }
-
-    start() {
-        this.newBorderRadius()
         this.runningBlob = setInterval(
             this.newBorderRadius.bind(this),
             parseFloat(getComputedStyle(blob).transitionDuration) * 1000
         )
+    }
+
+    start() {
+        this.newBorderRadius()
     }
 
     stop() {
@@ -46,7 +45,7 @@ yellowPart.start()
 
 
 
-document.body.addEventListener('mousemove', ({ pageX, pageY }) => {
+addEventListener('mousemove', ({ pageX, pageY }) => {
     const EYES = document.getElementsByClassName('eye')
 
     Array.from(EYES).forEach(eye => {
