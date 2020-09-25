@@ -85,7 +85,7 @@ body {
     height: 1vw;
     width: 1vw;
     border-radius: 1vw;
-    top: 30%;
+    margin-bottom: 30%;
 }
 
 .eye:first-child::after {
